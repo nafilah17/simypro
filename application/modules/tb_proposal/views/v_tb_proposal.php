@@ -47,8 +47,6 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah">Tambah Data</button> 
     <br>
     <br>
-    <a class="btn btn-primary btn-sm" type="button" href="<?php echo base_url('tb_proposal/export') ?>" >Export ke Excel</a>
-    <br>
     </div>
 
 <!-- tabel -->
@@ -133,7 +131,7 @@
     </tr>
       <?php }} ?>
     </table>
-     
+     <a class="btn btn-primary btn-sm" type="button" href="<?php echo base_url('tb_proposal/export') ?>" >Export ke Excel</a>
   </div>
   <div class="box box-default">
   <div class="box-footer">
