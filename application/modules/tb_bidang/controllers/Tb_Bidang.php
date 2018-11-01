@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('v_sidebar');
 			$this->load->view('v_tb_bidang',$data);
 			$this->load->view('v_footer');
+			$this->load->view('script_update_bidang');
 		}
 
 		// untuk modal tambah
@@ -42,19 +43,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 	function ubah(){
-			$no = $this->input->post('no');
+			$id_bidang = $this->input->post('id_bidang');
 			$data = array(
-				'id_bidang' 	=> $this->input->post('id_bidang'),
 				'nama_bidang'	=> $this->input->post('nama_bidang'),
 				'deskripsi'		=> $this->input->post('deskripsi')
 			);
-			if($this->m_tb_bidang->ubah($data,$no)){
+			if($this->m_tb_bidang->ubah($data,$id_bidang)){
 
 			$this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         		redirect('tb_bidang');
         	} else {
         		echo "tes";
         	}
-		}
+		}			
+
+		
 	}
 	

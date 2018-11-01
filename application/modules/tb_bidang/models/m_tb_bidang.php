@@ -25,12 +25,10 @@ public function getAll(){
     return $this->db->insert($table, $data);
     }
 
-    function ubah($data,$no){
-        $this->db->where('no',$no);
+    function ubah($data,$id_bidang){
+        $this->db->where('id_bidang',$id_bidang);
         if ($this->db->update('af_bidang', $data))
             return true;
-        else
-            return false;
     }
     // function edit_data($where,$table){
     // return $this->db->get_where($table,$where);
@@ -58,7 +56,7 @@ public function getAll(){
             $kd = "0001";
         }
         return "BID-" .$kd;
-    }   
+    }
     }
 
    

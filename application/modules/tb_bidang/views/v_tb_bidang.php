@@ -69,12 +69,13 @@
             <td><?php echo $bid->nama_bidang ?></td>
             <td><?php echo $bid->deskripsi ?></td>
             <td><a href="<?php echo site_url('tb_bidang/hapus/'.$bid->id_bidang)?>" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus data ini?')"><i class="fa fa-trash"></i></a></td>
-            <td><a href="javascript:;"
+            <td><a class="btn btn-info" href="javascript:;"
+                  
                   data-id_bidang="<?php echo $bid->id_bidang ?>"
                   data-nama_bidang="<?php echo $bid->nama_bidang ?>"
                   data-deskripsi="<?php echo $bid->deskripsi ?>"
                   data-toggle="modal" data-target="#edit-data">
-                  <button data-toggle="modal" data-target="#ubah" class="btn btn-info"><i class="fa fa-pencil"></i></button></a></td>
+                  <i class="fa fa-pencil"></i></a></td>
         </tr>
           <?php }}?>
       </table>
@@ -146,28 +147,22 @@
           <form class="form-horizontal"  action="<?php echo base_url('tb_bidang/ubah')?>" method="post" enctype="multipart/form-data" role="form">
           <div class="modal-body">
             <div class="box-body">
-               <div class="form-group">
-                <label for="no" class="col-sm-4 control-label">No</label>
-                  <div class="col-sm-8">
-                    <input type="text" name="no" value="<?php echo $bid->no;?>" class="form-control"  readonly>
-                  </div>
-              </div>
               <div class="form-group">
                 <label for="id_bidang" class="col-sm-4 control-label">Kode Bidang</label>
                   <div class="col-sm-8">
-                    <input type="text" name="id_bidang" value="<?php echo $bid->id_bidang;?>" class="form-control"  readonly>
+                    <input type="text" id="id_bidang" name="id_bidang" class="form-control"  readonly>
                   </div>
               </div>
               <div class="form-group">
                 <label for="nama_bidang" class="col-sm-4 control-label">Nama Bidang</label>
                   <div class="col-sm-8">
-                    <input type="text" name="nama_bidang" value="<?php echo $bid->nama_bidang;?>"  class="form-control" required>
+                    <input type="text" id="nama_bidang" name="nama_bidang" class="form-control" required>
                   </div>
               </div>
               <div class="form-group">
                 <label for="deskripsi" class="col-sm-4 control-label">Deskripsi</label>
                   <div class="col-sm-8">
-                    <textarea name="deskripsi" class="form-control" rows="3" required><?php echo $bid->deskripsi;?></textarea>
+                    <textarea id="deskripsi" name="deskripsi" class="form-control" rows="3" required></textarea>
                   </div>
               </div>
             </div>
@@ -188,18 +183,3 @@
     <!-- /.content -->
 </div>
 
-<script>
-    $(document).ready(function(){
-      // untuk edit
-      $('#edit-data').on('show.bs.modal', function (event){
-        var div = $(event.relatedTarget) // tombol dimana modal ditampilkan
-        var modal = $(this)
-
-        // isi nilai pada field
-        modal.find('#no').attr("value",div.data('no'));
-        modal.find('#id_bidang').attr("value",div.data('id_bidang'));
-        modal.find('#nama_bidang').attr("value",div.data('nama_bidang'));
-        modal.find('#deskripsi').attr("value",div.data('deskripsi'));              
-      });
-    });
-  </script>
